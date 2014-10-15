@@ -23,7 +23,7 @@ namespace Sample.Server
             Console.ReadLine();
         }
 
-        private static void OnConnectionAccepted(IPEndPoint endPoint, Socket socket)
+        static void OnConnectionAccepted(IPEndPoint endPoint, Socket socket)
         {
             var connection = TcpConnection.CreateAcceptedTcpConnection(Guid.NewGuid(), endPoint, socket, true);
             Console.WriteLine("TCP connection accepted: [{0}, L{1}, {2:B}].", connection.RemoteEndPoint, connection.LocalEndPoint, connection.ConnectionId);
