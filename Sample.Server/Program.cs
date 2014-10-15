@@ -11,7 +11,7 @@ namespace Sample.Server
         private const Int32 DEFAULT_PORT = 9900;
         public static int _messageNumber;
         public static Stopwatch _watch;
-        public static bool _sendReply = true;
+        public static bool _sendReply = false;  //如果要发送回复，则把该变量改为true即可
 
         static void Main(string[] args)
         {
