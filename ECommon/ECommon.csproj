@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{583A71AF-D57D-484C-BD76-89E0FA40D0C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ECommon</RootNamespace>
+    <AssemblyName>ECommon</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TcpTransport\BufferManagement\BufferManager.cs" />
+    <Compile Include="TcpTransport\BufferManagement\BufferPool.cs" />
+    <Compile Include="TcpTransport\BufferManagement\BufferPoolStream.cs" />
+    <Compile Include="TcpTransport\BufferManagement\UnableToAllocateBufferException.cs" />
+    <Compile Include="TcpTransport\BufferManagement\UnableToCreateMemoryException.cs" />
+    <Compile Include="TcpTransport\Framing\IMessageFramer.cs" />
+    <Compile Include="TcpTransport\Framing\LengthPrefixMessageFramer.cs" />
+    <Compile Include="TcpTransport\Framing\LengthPrefixMessageFramerWithBufferPool.cs" />
+    <Compile Include="TcpTransport\Framing\PackageFramingException.cs" />
+    <Compile Include="TcpTransport\Framing\StxEtxMessageFramer.cs" />
+    <Compile Include="TcpTransport\IMonitoredTcpConnection.cs" />
+    <Compile Include="TcpTransport\ITcpConnection.cs" />
+    <Compile Include="TcpTransport\Locks\SpinLock2.cs" />
+    <Compile Include="TcpTransport\Log\ConsoleLogger.cs" />
+    <Compile Include="TcpTransport\Log\ILogger.cs" />
+    <Compile Include="TcpTransport\Log\LazyLogger.cs" />
+    <Compile Include="TcpTransport\Log\LogManager.cs" />
+    <Compile Include="TcpTransport\SocketArgsPool.cs" />
+    <Compile Include="TcpTransport\TcpClientConnector.cs" />
+    <Compile Include="TcpTransport\TcpConfiguration.cs" />
+    <Compile Include="TcpTransport\TcpConnection.cs" />
+    <Compile Include="TcpTransport\TcpConnectionBase.cs" />
+    <Compile Include="TcpTransport\TcpConnectionLockless.cs" />
+    <Compile Include="TcpTransport\TcpConnectionMonitor.cs" />
+    <Compile Include="TcpTransport\TcpServerListener.cs" />
+    <Compile Include="TcpTransport\TcpStats.cs" />
+    <Compile Include="TcpTransport\Utils\Application.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TcpTransport\Utils\Empty.cs" />
+    <Compile Include="TcpTransport\Utils\Ensure.cs" />
+    <Compile Include="TcpTransport\Utils\EnumerableExtensions.cs" />
+    <Compile Include="TcpTransport\Utils\Helper.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
